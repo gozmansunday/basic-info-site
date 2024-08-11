@@ -1,0 +1,15 @@
+{
+  "name": "basic-info-site",
+  "version": "1.0.0",
+  "description": "A node.js app for learning the basics of the technology",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "nodemon --env-file=.env server.js"
+  },
+  "author": "Chiagoziem Sunday",
+  "license": "MIT",
+  "devDependencies": {
+    "nodemon": "^3.1.4"
+  }
+}
