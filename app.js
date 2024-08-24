@@ -21,33 +21,29 @@ const filePathMiddleware = async (req, res, fileName, next) => {
 // Homepage
 app.get("/", async (req, res) => {
   filePathMiddleware(req, res, "index.html", (data) => {
-    res.status(200).type("html").send(data);
+    res.status(200).send(data);
   });
 });
 
 // About page
 app.get("/about", async (req, res) => {
   filePathMiddleware(req, res, "about.html", (data) => {
-    res.status(200).type("html").send(data);
+    res.status(200).send(data);
   });
 });
 
 // Contact page
 app.get("/contact", async (req, res) => {
   filePathMiddleware(req, res, "contact.html", (data) => {
-    res.status(200).type("html").send(data);
+    res.status(200).send(data);
   });
 });
 
 // 404 page
-app.get("/:route", async (req, res) => {
-  const route = req.params.route;
-
-  if (!(route === "/" || route === "/about" || route === "/contact")) {
-    filePathMiddleware(req, res, "404.html", (data) => {
-      res.status(404).type("html").send(data);
-    });
-  }
+app.get("*", async (req, res) => {
+  filePathMiddleware(req, res, "404.html", (data) => {
+    res.status(404).send(data);
+  });
 });
 
 app.listen(PORT, () => {
